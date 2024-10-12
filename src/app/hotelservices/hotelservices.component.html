@@ -7,48 +7,16 @@
   
 </head>
 <body>
-    <div class="header">
-        <p>WELCOME TO HOTEL ECLIPSE</p>
-        <nav>
-            <a href="hotelservices">Services</a>
-            <a href="contact">Contact Us</a>
-            <a href="feedback">Feedback</a>
-            <a href="login">sign out</a>
-        </nav>
-    </div>
+    <app-header></app-header>
 <div class="main">
   <section id="services" class="services">
-    <h2>Our Services</h2>
+    <h2>Laundry Services</h2>
     
     <div class="container">
-        <div class="service">
-            <h3>Food Booking</h3>
-            <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-            <form id="food-booking-form">
-                <label for="type">Food Type:</label>
-                <select id="type" name="type" required>
-                    <option value="breakfast">Vegeterian</option>
-                    <option value="lunch">Non-Vegeterian</option>
-                    
-                </select><br><br>
-                <label for="noofguest">No of Guest:</label>
-                <input type="number" id="noofguest" name="noofguest" required><br><br>
-                
-                <label for="meal">Meal:</label>
-                <select id="meal" name="meal" required>
-                    <option value="breakfast">Breakfast (₹200/- per guest)</option>
-                    <option value="lunch">Lunch (₹400/- per guest)</option>
-                    <option value="dinner">Dinner (₹600/- per guest)</option>
-                </select><br><br>
-                <label for="price">Price:</label>
-                <input type="text" id="price" name="price" required><br><br>
-                <button type="submit">Book Now</button>
-            </form>
-        </div>
+       
         
         <div class="service">
-            <h3>Laundry Service</h3>
+            <h3>Book your Service Here!</h3>
             <form id="laundry-form">
                 <label for="email-laundry">Email:</label>
                 <input type="email" id="email-laundry" name="email-laundry" required><br><br>
@@ -71,17 +39,6 @@
     
   </section>
 </div>
-  <div class="footer">
-    <div class="address-container">
-       
-        <p>Hotel Eclipse</p>
-        <p>1234 Sunset Boulevard</p>
-        <p>Los Angeles, CA 90028</p>
-        <p>USA</p>
-        <p>Phone: +1-234-567-8900</p>
-        <p>Email: info&#64;hoteleclipse.com</p>
-    </div>
-    <p> &#64; 2024 Hotel Eclipse. All rights reserved.</p>
-  </div>
+  <app-footer></app-footer>
 </body>
 </html>

@@ -1,16 +1,16 @@
 <div class="header">
-  <p>WELCOME TO HOTEL ECLIPSE</p>
+  <div class="logo">
+    <p>HOTEL ECLIPSE</p>
+  </div>
   <nav>
-      <a href="contact">Contact Us</a>
-      
+    <a href="welcome">Home</a>
   </nav>
+
 </div>
-
-
 <div class="main">
-  <div class="login-container">
+<div class="login-container">
   <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+  <form [formGroup]="loginForm">
     <div class="form-group">
       <label for="email">Email</label>
       <input id="email" formControlName="email" type="email" />
@@ -19,16 +19,21 @@
       <label for="password">Password</label>
       <input id="password" formControlName="password" type="password" />
     </div>
-    
     <div class="form-actions">
       <button type="submit">Login</button>
-    </div>
-    <div class="register-link">
-      <span>New user here? </span><a href="/register">Register now</a>
     </div>
   </form>
 </div>
 </div>
 <div class="footer">
+  <div class="address-container">
+       
+    <p>Hotel Eclipse</p>
+    <p>1234 Sunset Boulevard</p>
+    <p>Los Angeles, CA 90028</p>
+    <p>USA</p>
+    <p>Phone: +1-234-567-8900</p>
+    <p>Email: info&#64;hoteleclipse.com</p>
+</div>
   <p> &#64; 2024 Hotel Eclipse. All rights reserved.</p>
 </div>

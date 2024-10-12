@@ -1,50 +1,65 @@
 .main {
-  margin-top: 1px;
-  width: 100%;
-  height: 500px;
- background-image: url(../../assets/pexels-thorsten-technoman-109353-338504.jpg);
+ 
+width: 100%;
+ height: 600px;
+ background-image: url(../../assets/pexels-arabiclogos-453201.jpg);
+ background-color: rgb(158, 161, 160);
  background-size: cover; 
  background-position: center;
   }
 
-  .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0c0808;
+    padding: 10px;
+    height: 60px;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center; /* Ensure logo and heading are aligned horizontally */
+  }
+  
+  .header p {
     color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: auto;
-    height: 30px;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  background-color: rgb(6, 6, 6);
-  color: white;
-  font-size: 25px;
-  width: 100%;
-  height: 30px;
-}
-
-.header p {
-  font-weight: bold;
-  margin: 0;
-  font-size: 20px;
-}
-
+    font-size: 40px;
+    margin: 0;
+    white-space: nowrap;
+    margin-left: 200%; /* Space between logo and heading */
+  }
+  
+  .header nav {
+    display: flex;
+    align-items: center; /* Ensure all items are aligned in the center */
+    gap: 15px;
+  }
+  
+  .header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .header nav a:hover {
+    background-color: #575757;
+  }
 
 .header .logo {
-  height: 10px; 
-  margin-right: 20px; 
+width: 50px; /* Adjust the width as needed */
+height: 50px; /* Adjust the height as needed */
+background-image: url('../../assets/images\ \(1\).png'); /* Path to your logo image */
+background-size: contain;
+background-repeat: no-repeat;
 }
  
   .register-container {
-    width: 400px;
+    width: 450px;
     margin: auto;
+   margin-top: 70px;
+ 
     padding: 0.5em;
     border: 1px solid #fff;
     border-radius: 10px;
@@ -54,7 +69,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(2, 69, 90, 0.8);
+    background-color: rgba(8, 9, 9, 0.8);
   }
  
   h2 {
@@ -71,7 +86,7 @@
   label {
     display: block;
     margin-bottom: 0.3em;
-    color: #ccc;
+    color: #f4f0f0;
   }
  
   input, select {
@@ -81,8 +96,8 @@
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #efd2d2;
-    color: #fff;
+    background-color: #656464;
+    color: #f4eded;
   }
  
   .form-actions {
@@ -95,18 +110,38 @@
     padding: 0.75em 1.5em;
     border: none;
     border-radius: 5px;
-    color:  rgba(10, 101, 126, 0.8);
+    color:  rgba(7, 7, 7, 0.8);
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-left: 40%;
   }
+
+  .footer{
+    
+    width: 100%;
+    background-color:black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    height: 30%;}
+
+    .address-container {
+        max-width: 350px;
+        margin: 5px auto;
+        padding: 10px;
+        
+        border-radius: 5px;
+        text-align: center;
+    }
+    .address-container h2 {
+        color: whitesmoke;
+        margin-bottom: 20px;
+    }
+    
+    .address-container p {
+        font-size: 18px;
+        color: whitesmoke;
+        margin: 5px 0;
+    }
  
- 
-  .login-link {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s;
-  }
- 
-  .login-link:hover {
-    color: #ccc;
-  }
