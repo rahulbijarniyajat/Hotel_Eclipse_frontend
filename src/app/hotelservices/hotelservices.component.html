@@ -4,41 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services Page</title>
-  
 </head>
 <body>
-    <app-header></app-header>
-<div class="main">
-  <section id="services" class="services">
-    <h2>Laundry Services</h2>
-    
-    <div class="container">
-       
-        
+  <app-header></app-header>
+  <div class="main">
+    <section id="services" class="services">
+      <h2>Laundry Services</h2>
+      <div class="container">
         <div class="service">
-            <h3>Book your Service Here!</h3>
-            <form id="laundry-form">
-                <label for="email-laundry">Email:</label>
-                <input type="email" id="email-laundry" name="email-laundry" required><br><br>
-                <label for="clothes">Number of Clothes:</label>
-                <input type="number" id="clothes" name="clothes" required><br><br>
-                <label for="wash">Type of wash:</label>
-                <select id="wash" name="wash" required>
-                    <option value="regular wash">regular wash (₹20/- per item)</option>
-                    <option value="bleach wash">bleach wash(₹30/- per item)</option>
-                    <option value="enzyme wash">enzyme wash(₹40/- per item)</option>
-                    <option value="stone wash">stone wash (₹50/- per item)</option>
-                    <option value="silicone wash">silicone wash (₹60/- per item)</option>
-                </select><br><br>
-                <label for="price-laundry">Price:</label>
-                <input type="text" id="price-laundry" name="price-laundry" required><br><br>
-                <button type="submit">Book Now</button>
-            </form>
+          <h3>Book your Service Here!</h3>
+          <form (ngSubmit)="onSubmit()" [formGroup]="laundryForm">
+            <label for="email-laundry">Email:</label>
+            <input type="email" id="email-laundry" formControlName="email" required><br><br>
+            <label for="clothes">Number of Clothes:</label>
+            <input type="number" id="clothes" formControlName="clothes" required><br><br>
+            <label for="wash">Type of wash:</label>
+            <select id="wash" formControlName="wash" required>
+              <option value="regular wash">regular wash (₹20/- per item)</option>
+              <option value="bleach wash">bleach wash (₹30/- per item)</option>
+              <option value="enzyme wash">enzyme wash (₹40/- per item)</option>
+              <option value="stone wash">stone wash (₹50/- per item)</option>
+              <option value="silicone wash">silicone wash (₹60/- per item)</option>
+            </select><br><br>
+            <label for="price-laundry">Price:</label>
+            <input type="text" id="price-laundry" formControlName="price" required [disabled]="true"><br><br>
+            <button type="submit">Book Now</button>
+          </form>
         </div>
-    </div>
-    
-  </section>
-</div>
+      </div>
+    </section>
+  </div>
   <app-footer></app-footer>
 </body>
 </html>
