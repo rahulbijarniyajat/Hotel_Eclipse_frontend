@@ -7,6 +7,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { HotelservicesComponent } from './hotelservices/hotelservices.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FoodComponent } from './food/food.component';
+import { RoombookingComponent } from './roombooking/roombooking.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path:'welcome',component: WelcomeComponent},
   {path:'food',component:FoodComponent},
   { path:'', redirectTo:'/welcome', pathMatch:'full'},
+  {path:'roombooking',component:RoombookingComponent},
 ];
 
 @NgModule({
