@@ -114,6 +114,12 @@
       "lname": "BIJARNIYA",
       "email": "rahulbijarniyajat@gmail.com",
       "password": "12890"
+    },
+    {
+      "id": "c693",
+      "username": "lavanya",
+      "checkindate": "2024-10-13T18:30:00.000Z",
+      "checkoutdate": "2024-10-14T18:30:00.000Z"
     }
   ]
 }
