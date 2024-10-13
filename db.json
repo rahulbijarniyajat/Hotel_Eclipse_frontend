@@ -1,77 +1,167 @@
 {
-  "users": [
+  "bookings": [
     {
-      "id": "7514",
-      "name": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "fcb9",
-      "name": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "84cc",
-      "name": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "5ec5",
-      "name": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "a5a6",
-      "name": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "45f1",
-      "name": "",
+      "id": "b9ac",
       "email": "rahulbijarniyajat@gmail.com",
-      "password": "123"
+      "type": "vegetarian",
+      "noofguest": 5,
+      "meal": "lunch",
+      "price": 2000
     },
     {
-      "id": "40fc",
-      "user": "",
-      "email": "rahul.bijarniya@siemens.com",
-      "password": "123"
+      "id": "b1b5",
+      "email": "rahulbijarniyajat@gmail.com",
+      "type": "non-vegetarian",
+      "noofguest": 8,
+      "meal": "lunch",
+      "price": 3200
     },
     {
-      "id": "55ad",
-      "user": "",
-      "email": "",
-      "password": ""
+      "id": "a0ee",
+      "email": "rahulbijarniyajat@gmail.com",
+      "type": "vegetarian",
+      "noofguest": 4,
+      "meal": "lunch",
+      "price": 1600
     },
     {
-      "id": "dbae",
-      "user": "",
-      "email": "e@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": "b65a",
-      "user": "",
-      "email": "e@gmail.com",
-      "password": "1234"
-    },
-    {
-      "id": "fc77",
-      "user": "",
+      "id": "3635",
       "email": "yyyyy@gmail.com",
-      "password": "7777"
+      "type": "non-vegetarian",
+      "noofguest": 5,
+      "meal": "lunch",
+      "price": 2000
     },
     {
-      "id": "31be",
-      "user": "",
-      "email": "",
-      "password": ""
+      "id": "9675",
+      "email": "e@gmail.com",
+      "type": "non-vegetarian",
+      "noofguest": 8,
+      "meal": "dinner",
+      "price": 4800
     },
+    {
+      "id": "e3be",
+      "email": "e@gmail.com",
+      "type": "vegetarian",
+      "noofguest": 4,
+      "meal": "lunch",
+      "price": 1600
+    },
+    {
+      "id": "a98f",
+      "email": "rahul.bijarniya@siemens.com",
+      "type": "vegetarian",
+      "noofguest": 4,
+      "meal": "breakfast",
+      "price": 800
+    },
+    {
+      "id": "cf7a",
+      "email": "yyyyy@gmail.com",
+      "type": "vegetarian",
+      "noofguest": 4,
+      "meal": "lunch",
+      "price": 1600
+    },
+    {
+      "id": "2b4d",
+      "email": "yyyyy@gmail.com",
+      "type": "vegetarian",
+      "noofguest": 45,
+      "meal": "lunch",
+      "price": 18000
+    },
+    {
+      "id": "e6d2",
+      "email": "e@gmail.com",
+      "type": "vegetarian",
+      "noofguest": 5,
+      "meal": "lunch",
+      "price": 2000
+    },
+    {
+      "id": "484f",
+      "email": "e@gmail.com",
+      "type": "vegetarian",
+      "noofguest": 5,
+      "meal": "lunch",
+      "price": 2000
+    },
+    {
+      "id": "c6a4",
+      "email": "e@gmail.com",
+      "type": "non-vegetarian",
+      "noofguest": 8,
+      "meal": "breakfast",
+      "price": 1600
+    },
+    {
+      "id": "9ca5",
+      "email": "e@gmail.com",
+      "type": "non-vegetarian",
+      "noofguest": 8,
+      "meal": "breakfast",
+      "price": 1600
+    },
+    {
+      "id": "652a",
+      "email": "rahulbijarniyajat@gmail.com",
+      "clothes": 30,
+      "wash": "bleach wash",
+      "price": 900
+    },
+    {
+      "id": "8c27",
+      "email": "yyyyy@gmail.com",
+      "clothes": 21,
+      "wash": "stone wash",
+      "price": 1050
+    },
+    {
+      "id": "d757",
+      "email": "yyyyy@gmail.com",
+      "clothes": 21,
+      "wash": "bleach wash",
+      "price": 630
+    },
+    {
+      "id": "8a4c",
+      "email": "yyyyy@gmail.com",
+      "clothes": 10,
+      "wash": "enzyme wash",
+      "price": 400
+    },
+    {
+      "id": "ff94",
+      "email": "yyyyy@gmail.com",
+      "clothes": 10,
+      "wash": "stone wash",
+      "price": 500
+    },
+    {
+      "id": "3a79",
+      "email": "rahulbijarniyajat@gmail.com",
+      "clothes": 45,
+      "wash": "silicone wash",
+      "price": 2700
+    },
+    {
+      "id": "62e5",
+      "email": "e@gmail.com",
+      "clothes": 4,
+      "wash": "bleach wash",
+      "price": 120
+    },
+    {
+      "id": "868f",
+      "email": "rahulbijarniyajat@gmail.com",
+      "clothes": 5,
+      "wash": "regular wash",
+      "price": 100
+    }
+  ],
+  "users": [
     {
       "id": "e3a3",
       "user": "gourav",
@@ -120,6 +210,12 @@
       "username": "lavanya",
       "checkindate": "2024-10-13T18:30:00.000Z",
       "checkoutdate": "2024-10-14T18:30:00.000Z"
+    },
+    {
+      "id": "5f83",
+      "username": "sarita jhakar",
+      "checkindate": "2024-10-09T18:30:00.000Z",
+      "checkoutdate": "2024-10-13T18:30:00.000Z"
     }
   ]
 }
