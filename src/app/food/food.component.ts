@@ -1,79 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from '../services/auth.service';
+import { Component } from '@angular/core';
+import { BookingService, food } from '../services/booking.service';
 
 @Component({
   selector: 'app-food',
   templateUrl: './food.component.html',
   styleUrls: ['./food.component.css']
 })
-export class FoodComponent implements OnInit {
-  foodForm: FormGroup;
+export class FoodComponent  {
+  
   mealPrices = {
     breakfast: 200,
     lunch: 400,
     dinner: 600
   };
 
-  constructor(private fb: FormBuilder,private authservice: AuthService, private http: HttpClient, private dialog: MatDialog) {
-    this.foodForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      type: ['', Validators.required],
-      noofguest: ['', [Validators.required, Validators.min(1)]],
-      meal: ['', Validators.required],
-      price: [{ value: '', disabled: true }, Validators.required]
-    });
-  }
+  foodDetails: food = {
+    email: '',
+    foodtype: '',
+    noofguests: 0,
+    meal: '',
+    price: 0
+  };
 
-  ngOnInit(): void {
-    this.foodForm.valueChanges.subscribe(values => {
-      this.calculatePrice();
-    });
-  }
+  constructor(private bookingService: BookingService) { }
 
-  calculatePrice(): void {
-    const noofguest = this.foodForm.get('noofguest')?.value;
-    const meal = this.foodForm.get('meal')?.value as 'breakfast' | 'lunch' | 'dinner';
-    const mealPrice = this.mealPrices[meal] || 0;
-    const totalPrice = noofguest * mealPrice;
-    this.foodForm.get('price')?.setValue(totalPrice);
-  }
+  calculatePrice() {
+    const mealPrices: { [key: string]: number } = {
+      breakfast: 300,
+      lunch: 500,
+      dinner: 700
+    };
 
-  // onSubmit(): void {
-  //   if (this.foodForm.valid) {
-  //     const bookingData = this.foodForm.getRawValue();
-  //     console.log('Booking Data:', bookingData); // Debugging line
-  //     this.http.post('http://localhost:3000/bookings', bookingData)
-  //       .subscribe((response: any) => {
-  //         console.log('Booking saved', response);
-  //         this.openDialog();
-  //       }, (error: any) => {
-  //         console.error('Error saving booking', error);
-  //       });
-  //   }
-  // }
+  
+    const selectedMealPrice = mealPrices[this.foodDetails.meal as keyof typeof mealPrices] || 0;
 
-  onSubmit(): void {
-    if (this.foodForm.valid) {
-      const bookingData = this.foodForm.getRawValue();
-      console.log('Booking Data:', bookingData); // Debugging line
-      this.authservice.saveFoodBooking(bookingData).subscribe(
-        response => {
-          console.log('Booking saved', response);
-          this.openDialog();
-        },
-        error => {
-          console.error('Error saving booking', error);
-        }
-      );
-    }
+    this.foodDetails.price = this.foodDetails.noofguests * selectedMealPrice;
   }
 
 
-  openDialog(): void {
-    this.dialog.open(DialogContentExampleDialog);
+  bookFoodService() {
+    this.bookingService.saveFoodService(this.foodDetails).subscribe(
+      response => {
+        console.log('Food service booked successfully', response);
+        alert('Food service booked successfully');
+      },
+      error => {
+        console.error('Error booking food service', error);
+        alert('Failed to book food service');
+      }
+    );
   }
 }
 

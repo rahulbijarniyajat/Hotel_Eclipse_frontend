@@ -1,65 +1,62 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from '../services/auth.service';
+import { Component } from '@angular/core';
+import { BookingService, hotelservices } from '../services/booking.service'; // Ensure the service is correctly imported
 
 @Component({
   selector: 'app-hotelservices',
   templateUrl: './hotelservices.component.html',
-  styleUrls: ['./hotelservices.component.css']
+  styleUrls: ['./hotelservices.component.css'] // Updated to correct styleUrls
 })
-export class HotelservicesComponent implements OnInit {
-  laundryForm: FormGroup;
-  washPrices = {
-    'regular wash': 20,
-    'bleach wash': 30,
-    'enzyme wash': 40,
-    'stone wash': 50,
-    'silicone wash': 60
+export class HotelservicesComponent {
+  laundry: hotelservices = {
+    email: '',
+    noofclothes: 0,
+    typeofwash: 'regular wash', 
+    price: 0
   };
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private authservice: AuthService, private dialog: MatDialog) {
-    this.laundryForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      clothes: ['', [Validators.required, Validators.min(1)]],
-      wash: ['', Validators.required],
-      price: [{ value: '', disabled: true }, Validators.required]
-    });
+  constructor(private bookingService: BookingService) { }
+
+  // Function to calculate price based on type of wash
+  calculatePrice() {
+    const washPrices: { [key: string]: number } = {
+      'regular wash': 20,
+      'bleach wash': 30,
+      'enzyme wash': 40,
+      'stone wash': 50,
+      'silicone wash': 60
+    };
+
+    const selectedWashPrice = washPrices[this.laundry.typeofwash as keyof typeof washPrices] || 0;
+
+    this.laundry.price = this.laundry.noofclothes * selectedWashPrice;
   }
 
-  ngOnInit(): void {
-    this.laundryForm.valueChanges.subscribe(values => {
-      this.calculatePrice();
-    });
-  }
-
-  calculatePrice(): void {
-    const clothes = this.laundryForm.get('clothes')?.value;
-    const wash = this.laundryForm.get('wash')?.value as keyof typeof this.washPrices;
-    const washPrice = this.washPrices[wash] || 0;
-    const totalPrice = clothes * washPrice;
-    this.laundryForm.get('price')?.setValue(totalPrice);
-  }
-
-  onSubmit(): void {
-    if (this.laundryForm.valid) {
-      const bookingData = this.laundryForm.getRawValue();
-      console.log('Booking Data:', bookingData); // Debugging line
-      this.authservice.saveLaundryBooking(bookingData).subscribe(
+  bookLaundryService() {
+    if (this.laundry.noofclothes > 0 && this.laundry.email) {
+      this.bookingService.saveLaundryService(this.laundry).subscribe(
         response => {
-          console.log('Booking saved', response);
-          this.openDialog();
+          console.log('Laundry service booked successfully', response);
+          alert('Laundry service booked successfully');
+          this.resetForm(); // Reset the form after booking
         },
         error => {
-          console.error('Error saving booking', error);
+          console.error('Error booking laundry service', error);
+          alert('Failed to book laundry service');
         }
       );
+    } else {
+      alert('Please fill in all required fields.'); // Alert user to fill the form
     }
   }
 
-  openDialog(): void {
-    this.dialog.open(DialogContentExampleDialog);
+  // Function to reset the form after submission
+  private resetForm() {
+    this.laundry = {
+      email: '',
+      noofclothes: 0,
+      typeofwash: 'regular wash', // Reset to default value
+      price: 0
+    };
   }
 }
 
