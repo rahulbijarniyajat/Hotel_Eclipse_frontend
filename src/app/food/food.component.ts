@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-food',
@@ -16,7 +17,7 @@ export class FoodComponent implements OnInit {
     dinner: 600
   };
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private dialog: MatDialog) {
+  constructor(private fb: FormBuilder,private authservice: AuthService, private http: HttpClient, private dialog: MatDialog) {
     this.foodForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       type: ['', Validators.required],
@@ -40,19 +41,36 @@ export class FoodComponent implements OnInit {
     this.foodForm.get('price')?.setValue(totalPrice);
   }
 
+  // onSubmit(): void {
+  //   if (this.foodForm.valid) {
+  //     const bookingData = this.foodForm.getRawValue();
+  //     console.log('Booking Data:', bookingData); // Debugging line
+  //     this.http.post('http://localhost:3000/bookings', bookingData)
+  //       .subscribe((response: any) => {
+  //         console.log('Booking saved', response);
+  //         this.openDialog();
+  //       }, (error: any) => {
+  //         console.error('Error saving booking', error);
+  //       });
+  //   }
+  // }
+
   onSubmit(): void {
     if (this.foodForm.valid) {
       const bookingData = this.foodForm.getRawValue();
       console.log('Booking Data:', bookingData); // Debugging line
-      this.http.post('http://localhost:3000/bookings', bookingData)
-        .subscribe((response: any) => {
+      this.authservice.saveFoodBooking(bookingData).subscribe(
+        response => {
           console.log('Booking saved', response);
           this.openDialog();
-        }, (error: any) => {
+        },
+        error => {
           console.error('Error saving booking', error);
-        });
+        }
+      );
     }
   }
+
 
   openDialog(): void {
     this.dialog.open(DialogContentExampleDialog);

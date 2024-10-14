@@ -5,35 +5,46 @@
   <nav>
     <a href="welcome">Home</a>
   </nav>
+</div>
 
-</div>
 <div class="main">
-<div class="login-container">
-  <h2>Login</h2>
-  <form [formGroup]="loginForm">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input id="email" formControlName="email" type="email" />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input id="password" formControlName="password" type="password" />
-    </div>
-    <div class="form-actions">
-      <button type="submit">Login</button>
-    </div>
-  </form>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" />
+        <div *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched">
+          <small style="color: red;">Email is required.</small>
+        </div>
+        <div *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched">
+          <small style="color: red;">Please enter a valid email address.</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" />
+        <div *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched">
+          <small style="color: red;">Password is required.</small>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
 </div>
-</div>
+
 <div class="footer">
   <div class="address-container">
-       
     <p>Hotel Eclipse</p>
     <p>1234 Sunset Boulevard</p>
     <p>Los Angeles, CA 90028</p>
     <p>USA</p>
     <p>Phone: +1-234-567-8900</p>
     <p>Email: info&#64;hoteleclipse.com</p>
-</div>
-  <p> &#64; 2024 Hotel Eclipse. All rights reserved.</p>
+  </div>
+  <p>&#64; 2024 Hotel Eclipse. All rights reserved.</p>
 </div>

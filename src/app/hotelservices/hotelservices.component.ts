@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-hotelservices',
@@ -18,7 +19,7 @@ export class HotelservicesComponent implements OnInit {
     'silicone wash': 60
   };
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private dialog: MatDialog) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private authservice: AuthService, private dialog: MatDialog) {
     this.laundryForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       clothes: ['', [Validators.required, Validators.min(1)]],
@@ -45,13 +46,15 @@ export class HotelservicesComponent implements OnInit {
     if (this.laundryForm.valid) {
       const bookingData = this.laundryForm.getRawValue();
       console.log('Booking Data:', bookingData); // Debugging line
-      this.http.post('http://localhost:3000/bookings', bookingData)
-        .subscribe((response: any) => {
+      this.authservice.saveLaundryBooking(bookingData).subscribe(
+        response => {
           console.log('Booking saved', response);
           this.openDialog();
-        }, (error: any) => {
+        },
+        error => {
           console.error('Error saving booking', error);
-        });
+        }
+      );
     }
   }
 

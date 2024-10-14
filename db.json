@@ -159,63 +159,38 @@
       "clothes": 5,
       "wash": "regular wash",
       "price": 100
+    },
+    {
+      "id": "bad1",
+      "email": "rahulbijarniyajat@gmail.com",
+      "clothes": 5,
+      "wash": "bleach wash",
+      "price": 150
+    },
+    {
+      "id": "2b90",
+      "email": "rahulbijarniyajat@gmail.com",
+      "clothes": 10,
+      "wash": "bleach wash",
+      "price": 300
     }
   ],
   "users": [
     {
-      "id": "e3a3",
-      "user": "gourav",
-      "email": "",
-      "password": ""
+      "id": "c77a",
+      "fname": "rahul",
+      "lname": "choudhary",
+      "email": "e@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678"
     },
     {
-      "id": "53d6",
-      "user": "dfwsfwedw",
-      "email": "rahulbijarniyajat@gmail.com",
-      "password": "123445"
-    },
-    {
-      "id": "2f79",
-      "user": "werdf",
-      "email": "rahul.bijarniya@siemens.com",
-      "password": "567890"
-    },
-    {
-      "id": "1f0d",
-      "user": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "fae4",
-      "user": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "3d55",
-      "user": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "23a6",
-      "fname": "RAHUL",
-      "lname": "BIJARNIYA",
-      "email": "rahulbijarniyajat@gmail.com",
-      "password": "12890"
-    },
-    {
-      "id": "c693",
-      "username": "lavanya",
-      "checkindate": "2024-10-13T18:30:00.000Z",
-      "checkoutdate": "2024-10-14T18:30:00.000Z"
-    },
-    {
-      "id": "5f83",
-      "username": "sarita jhakar",
-      "checkindate": "2024-10-09T18:30:00.000Z",
-      "checkoutdate": "2024-10-13T18:30:00.000Z"
+      "id": "338d",
+      "fname": "qwerwer",
+      "lname": "werwe",
+      "email": "wefrwfef@gmail.com",
+      "password": "12345678",
+      "confirmPassword": "12345678"
     }
   ]
 }

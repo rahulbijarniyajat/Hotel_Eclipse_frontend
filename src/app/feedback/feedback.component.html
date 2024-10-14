@@ -28,7 +28,7 @@
     
     <section id="contact" class="contact">
         <h2>Give Your Feedback</h2>
-        <form>
+        <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email</label>

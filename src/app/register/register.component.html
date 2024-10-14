@@ -1,56 +1,72 @@
-<div class="header">
-  <div class="logo">
-    <p>HOTEL ECLIPSE</p>
-  </div>
-  <nav>
-    <a href="welcome">Home</a>
-  </nav>
-
-</div>
-
+<app-header></app-header>
 <div class="main">
   <div class="register-container">
     <h2>Register Here</h2>
     <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
       <div class="form-group">
         <label for="fname">First Name</label>
-        <input id="fname" [(ngModel)]="newUser.fname" formControlName="fname" type="text" />
+        <input id="fname" formControlName="fname" type="text" />
+        <div *ngIf="registerForm.get('fname')?.errors?.['required'] && registerForm.get('fname')?.touched">
+          <small style="color: red;">First name is required.</small>
+        </div>
+        <div *ngIf="registerForm.get('fname')?.errors?.['maxlength'] && registerForm.get('fname')?.touched">
+          <small style="color: red;">First name cannot exceed 15 characters.</small>
+        </div>
       </div>
+
       <div class="form-group">
-        <label for="lname">last Name</label>
-        <input id="lname" [(ngModel)]="newUser.lname" formControlName="lname" type="text" />
+        <label for="lname">Last Name</label>
+        <input id="lname" formControlName="lname" type="text" />
+        <div *ngIf="registerForm.get('lname')?.errors?.['required'] && registerForm.get('lname')?.touched">
+          <small style="color: red;">Last name is required.</small>
+        </div>
+        <div *ngIf="registerForm.get('lname')?.errors?.['maxlength'] && registerForm.get('lname')?.touched">
+          <small style="color: red;">Last name cannot exceed 15 characters.</small>
+        </div>
       </div>
+
       <div class="form-group">
         <label for="email">Email</label>
-        <input id="email"  [(ngModel)]="newUser.email" formControlName="email" type="email" />
+        <input id="email" formControlName="email" type="email" />
+        <div *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched">
+          <small style="color: red;">Email is required.</small>
+        </div>
+        <div *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched">
+          <small style="color: red;">Please enter a valid email address.</small>
+        </div>
+        <div *ngIf="registerForm.get('email')?.errors?.['notGmail'] && registerForm.get('email')?.touched">
+          <small style="color: red;">Please enter an email address that ends with &#64;gmail.com.</small>
+        </div>
       </div>
-      
+
       <div class="form-group">
         <label for="password">Password</label>
-        <input id="password" [(ngModel)]="newUser.password" formControlName="password" type="password" />
+        <input id="password" formControlName="password" type="password" />
+        <div *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched">
+          <small style="color: red;">Password is required.</small>
+        </div>
+        <div *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched">
+          <small style="color: red;">Password must be at least 8 characters long.</small>
+        </div>
       </div>
+
       <div class="form-group">
         <label for="confirmPassword">Confirm Password</label>
-        <input id="confirmPassword"  formControlName="confirmPassword" type="password" />
+        <input id="confirmPassword" formControlName="confirmPassword" type="password" />
+        <div *ngIf="registerForm.get('confirmPassword')?.errors?.['required'] && registerForm.get('confirmPassword')?.touched">
+          <small style="color: red;">Please confirm your password.</small>
+        </div>
+        <div *ngIf="registerForm.value.password !== registerForm.value.confirmPassword && registerForm.get('confirmPassword')?.touched">
+          <small style="color: red;">Passwords do not match.</small>
+        </div>
       </div>
+
       <div class="form-actions">
-        <button type="submit" click="showPopup()">Register</button>
-        
+        <button type="submit">Register</button>
       </div>
     </form>
+    
   </div>
-
   
 </div>
-<div class="footer">
-  <div class="address-container">
-       
-    <p>Hotel Eclipse</p>
-    <p>1234 Sunset Boulevard</p>
-    <p>Los Angeles, CA 90028</p>
-    <p>USA</p>
-    <p>Phone: +1-234-567-8900</p>
-    <p>Email: info&#64;hoteleclipse.com</p>
-</div>
-  <p> &#64; 2024 Hotel Eclipse. All rights reserved.</p>
-</div>
+<app-footer></app-footer>
