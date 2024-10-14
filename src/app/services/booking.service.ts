@@ -1,31 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-
-
+ 
+ 
 export interface Booking{
-  username: string;
+  email: string;
+  roomType:String;
   checkindate:string;
   checkoutdate:string;
   totalprice:number;
 }
-
+ 
 export interface food{
   email:String;
   foodtype:string;
   noofguests:number;
   meal:string;
   price:number
-
+ 
 }
-
+ 
 export interface hotelservices{
   email:string;
   noofclothes:number;
   typeofwash:string;
   price:number;
-
+ 
 }
 @Injectable({
   providedIn: 'root'
@@ -38,7 +38,7 @@ export class BookingService {
   saveBooking(booking:Booking):Observable<Booking>{
     return this.http.post<Booking>(this.apiurl,booking);
   }
-
+ 
   saveFoodService(food: food): Observable<food> {
     return this.http.post<food>(this.foodApiUrl, food);
   }

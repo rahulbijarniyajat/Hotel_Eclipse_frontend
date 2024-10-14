@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookingService, Booking } from '../services/booking.service'; // Import the service
 import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 import { MatDialog } from '@angular/material/dialog';
-
+ 
 @Component({
   selector: 'app-bookingform',
   templateUrl: './bookingform.component.html',
@@ -12,32 +12,42 @@ import { MatDialog } from '@angular/material/dialog';
 export class BookingformComponent {
   bookingForm: FormGroup;
   @Input() roomprice: number = 0;
+  @Input() roomType: string=''; // Accept roomType as input
   @Output() closeForm = new EventEmitter<void>();
-
+ 
+  ngOnInit() {
+    this.bookingForm.patchValue({
+      roomType: this.roomType // Set the room type in the form
+    });
+  }
+ 
+ 
   constructor(private fb: FormBuilder, private bookingService: BookingService) { // Inject BookingService
     this.bookingForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
+      roomType: [''],
       checkInDate: ['', Validators.required],
       checkOutDate: ['', Validators.required],
       totalprice: [{ value: 0, disabled: true }, Validators.required],
     });
-
+ 
     this.bookingForm.get('checkInDate')?.valueChanges.subscribe(() => this.calculateTotalPrice());
     this.bookingForm.get('checkOutDate')?.valueChanges.subscribe(() => this.calculateTotalPrice());
   }
-
+ 
   readonly dialog = inject(MatDialog);
-
+ 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     if (this.bookingForm.valid) {
       // Create a booking object from the form values
       const booking: Booking = {
-        username: this.bookingForm.value.username,
+        email: this.bookingForm.value.username,
+        roomType: this.bookingForm.value.roomType, 
         checkindate: this.bookingForm.value.checkInDate,
         checkoutdate: this.bookingForm.value.checkOutDate,
         totalprice: this.bookingForm.value.totalprice,
       };
-
+ 
       // Save the booking using the BookingService
       this.bookingService.saveBooking(booking).subscribe({
         next: (savedBooking) => {
@@ -56,25 +66,22 @@ export class BookingformComponent {
       });
     }
   }
-
+ 
   cancel(): void {
     this.closeForm.emit(); // Emit closeForm event on cancel
   }
-
+ 
   calculateTotalPrice(): void {
     const checkInDateStr = this.bookingForm.get('checkInDate')?.value;
     const checkOutDateStr = this.bookingForm.get('checkOutDate')?.value;
-  
     if (checkInDateStr && checkOutDateStr) {
       const checkInDate = new Date(checkInDateStr);
       const checkOutDate = new Date(checkOutDateStr);
-  
       if (!isNaN(checkInDate.getTime()) && !isNaN(checkOutDate.getTime()) && checkOutDate > checkInDate) {
         const timeDifference = checkOutDate.getTime() - checkInDate.getTime();
         const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
         const totalPrice = daysDifference * this.roomprice;
         this.bookingForm.patchValue({ totalprice: totalPrice });
-  
         console.log(`Room Price: ${this.roomprice}, Days Difference: ${daysDifference}, Total Price: ${totalPrice}`);
       } else {
         this.bookingForm.patchValue({ totalprice: 0 }); 

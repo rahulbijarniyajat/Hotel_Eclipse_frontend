@@ -29,7 +29,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogActions,MatDialogClose,MatDialogContent,MatDialogTitle, MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
-
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,MatDatepickerModule,MatNativeDateModule,BrowserAnimationsModule,MatDialogActions,MatDialogClose,MatDialogContent,MatDialogTitle,MatDialogModule,
     AppRoutingModule, ReactiveFormsModule, HttpClientModule,MatButtonModule,MatButtonToggleModule,MatIconModule,MatInputModule,MatFormFieldModule,
-    MatDividerModule,FormsModule,
+    MatDividerModule,FormsModule,MatSelectModule
     
   ],
   providers: [

@@ -1,124 +1,125 @@
 <app-header></app-header>
 <app-rbheader></app-rbheader>
 <div class="room-list">
-    <div class="room-container">
-        <div class="room-image">
-            <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=600">
-            <section>
-                <div class="example-button-row">
-                    <button mat-flat-button (click)="openBookingForm(3000)">Book Now</button>
-                    <app-bookingform *ngIf="showBookingForm" [roomprice]="currentroomprice" (closeForm)="closeBookingForm()"></app-bookingform>
-                </div>
-            </section>
-        </div>
-        
-        <div class="room-details">
-            <h2>Single Room</h2>
-            <ul>
-                <li>Wifi Available</li>
-                <li>Accommodation: 1 Person</li>
-                <li>Air Conditioning</li>
-                <li>TV With Cable</li>
-                <li>Price: $3000 Per day</li>
-            </ul>
-        </div>
-        
-    </div>
-
-    <div class="room-container">
-        <div class="room-image">
-            <img src="https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=600">
-            <section>
-                <div class="example-button-row">
-                    <button mat-flat-button (click)="openBookingForm(5000)">Book Now</button>
-                    <app-bookingform *ngIf="showBookingForm" [roomprice]="currentroomprice" (closeForm)="closeBookingForm()"></app-bookingform>
-                </div>
-            </section>
-        </div>
-        <div class="room-details">
-            <h2>Double Room</h2>
-            <ul>
-                <li>Wifi Available</li>
-                <li>Accommodation: 2 Persons</li>
-                <li>Air Conditioning</li>
-                <li>TV With Cable</li>
-                <li>Price: $5000 Per day</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="room-container">
-        <div class="room-image">
-            <img src="https://media.istockphoto.com/id/1161539462/photo/hotel-room-interior-3d-illustration-photorealistic-rendering.jpg?s=612x612&w=0&k=20&c=5_3FChSTQBunu_hw6nv1hAtL9UCJbjE_HwNFOzFOTmE=">
-            <div class="example-button-row">
-                <button mat-flat-button (click)="openBookingForm(8000)">Book Now</button>
-                <app-bookingform *ngIf="showBookingForm" [roomprice]="currentroomprice" (closeForm)="closeBookingForm()"></app-bookingform>
-            </div>
-        </div>
-        <div class="room-details">
-            <h2>Deluxe Room</h2>
-            <ul>
-                <li>Wifi Available</li>
-                <li>Accommodation: 5 Persons</li>
-                <li>Air Conditioning</li>
-                <li>TV With Cable</li>
-                <li>Price: $8000 Per day</li>
-            </ul>
-        </div>
-        <section>
-        </section>
-    </div>
-
-    <div class="room-container">
-        <div class="room-image">
-            <img src="https://media.istockphoto.com/id/898365066/photo/3d-render-of-bedroom-in-luxury-hotel.jpg?s=612x612&w=0&k=20&c=UWt5Bu7xhdREmrHx0vcnW1oPW8b-xI5C_hAa0ssaPSY=">
-            <section>
-                <div class="example-button-row">
-                    <button mat-flat-button (click)="openBookingForm(10000)">Book Now</button>
-                    <app-bookingform *ngIf="showBookingForm" [roomprice]="currentroomprice" (closeForm)="closeBookingForm()"></app-bookingform>
-                </div>
-            </section>
-        </div>
-        <div class="room-details">
-            <h2>Ultra Deluxe Room</h2>
-            <ul>
-                <li>Wifi Available</li>
-                <li>Accommodation: 7 Persons</li>
-                <li>Air Conditioning</li>
-                <li>TV With Cable</li>
-                <li>Price: $10000 Per day</li>
-            </ul>
-        </div>
-    </div>
+<div class="room-container">
+<div class="room-image">
+<img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=600">
+<section>
+<div class="example-button-row">
+<button mat-flat-button (click)="openBookingForm(3000,'Single Room')">Book Now</button>
+<app-bookingform  *ngIf="showBookingForm" [roomprice]="currentroomprice" [roomType]="currentRoomType" (closeForm)="closeBookingForm()">
+</app-bookingform>
 </div>
-
-
+</section>
+</div>
+<div class="room-details">
+<h2>Single Room</h2>
+<ul>
+<li>Wifi Available</li>
+<li>Accommodation: 1 Person</li>
+<li>Air Conditioning</li>
+<li>TV With Cable</li>
+<li>Price: $3000 Per day</li>
+</ul>
+</div>
+</div>
+ 
+    <div class="room-container">
+<div class="room-image">
+<img src="https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=600">
+<section>
+<div class="example-button-row">
+<button mat-flat-button (click)="openBookingForm(5000,'Double Room')">Book Now</button>
+<app-bookingform  *ngIf="showBookingForm" [roomprice]="currentroomprice" [roomType]="currentRoomType" (closeForm)="closeBookingForm()">
+</app-bookingform>
+</div>
+</section>
+</div>
+<div class="room-details">
+<h2>Double Room</h2>
+<ul>
+<li>Wifi Available</li>
+<li>Accommodation: 2 Persons</li>
+<li>Air Conditioning</li>
+<li>TV With Cable</li>
+<li>Price: $5000 Per day</li>
+</ul>
+</div>
+</div>
+ 
+    <div class="room-container">
+<div class="room-image">
+<img src="https://media.istockphoto.com/id/1161539462/photo/hotel-room-interior-3d-illustration-photorealistic-rendering.jpg?s=612x612&w=0&k=20&c=5_3FChSTQBunu_hw6nv1hAtL9UCJbjE_HwNFOzFOTmE=">
+<div class="example-button-row">
+<button mat-flat-button (click)="openBookingForm(8000,'Deluxe Room')">Book Now</button>
+<app-bookingform  *ngIf="showBookingForm" [roomprice]="currentroomprice" [roomType]="currentRoomType" (closeForm)="closeBookingForm()">
+</app-bookingform>
+</div>
+</div>
+<div class="room-details">
+<h2>Deluxe Room</h2>
+<ul>
+<li>Wifi Available</li>
+<li>Accommodation: 5 Persons</li>
+<li>Air Conditioning</li>
+<li>TV With Cable</li>
+<li>Price: $8000 Per day</li>
+</ul>
+</div>
+<section>
+</section>
+</div>
+ 
+    <div class="room-container">
+<div class="room-image">
+<img src="https://media.istockphoto.com/id/898365066/photo/3d-render-of-bedroom-in-luxury-hotel.jpg?s=612x612&w=0&k=20&c=UWt5Bu7xhdREmrHx0vcnW1oPW8b-xI5C_hAa0ssaPSY=">
+<section>
+<div class="example-button-row">
+<button mat-flat-button (click)="openBookingForm(10000,'Ultra Deluxe Room')">Book Now</button>
+<app-bookingform  *ngIf="showBookingForm" [roomprice]="currentroomprice" [roomType]="currentRoomType" (closeForm)="closeBookingForm()">
+</app-bookingform>
+</div>
+</section>
+</div>
+<div class="room-details">
+<h2>Ultra Deluxe Room</h2>
+<ul>
+<li>Wifi Available</li>
+<li>Accommodation: 7 Persons</li>
+<li>Air Conditioning</li>
+<li>TV With Cable</li>
+<li>Price: $10000 Per day</li>
+</ul>
+</div>
+</div>
+</div>
+ 
+ 
 <div class="services-container">
-    <h2 class="services-heading">Exclusive Services</h2>
-    <div class="service-boxes">
-        <div class="service-box">
-            <img src="https://images.pexels.com/photos/7031706/pexels-photo-7031706.jpeg?auto=compress&cs=tinysrgb&w=600">
-            <h3>Gym</h3>
-            <p>Our gym is equipped with modern fitness equipment and is open 24/7 for your convenience.</p>
-        </div>
-        <div class="service-box">
-            <img src="https://images.pexels.com/photos/61129/pexels-photo-61129.jpeg?auto=compress&cs=tinysrgb&w=600">
-            <h3>Swimming</h3>
-            <p>Enjoy our indoor swimming pool with a relaxing atmosphere, perfect for leisure or exercise.</p>
-        </div>
-        <div class="service-box">
-            <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600">
-            <h3>Office Meeting</h3>
-            <p>We provide well-equipped meeting rooms for your business needs, complete with audio-visual facilities.</p>
-        </div>
-        <div class="service-box">
-            <img src="https://images.pexels.com/photos/3217154/pexels-photo-3217154.jpeg?auto=compress&cs=tinysrgb&w=600">
-            <h3>Indoor Games</h3>
-            <p>Engage in various indoor games like table tennis, billiards, and more to unwind.</p>
-        </div>
-    </div>
+<h2 class="services-heading">Exclusive Services</h2>
+<div class="service-boxes">
+<div class="service-box">
+<img src="https://images.pexels.com/photos/7031706/pexels-photo-7031706.jpeg?auto=compress&cs=tinysrgb&w=600">
+<h3>Gym</h3>
+<p>Our gym is equipped with modern fitness equipment and is open 24/7 for your convenience.</p>
 </div>
-
+<div class="service-box">
+<img src="https://images.pexels.com/photos/61129/pexels-photo-61129.jpeg?auto=compress&cs=tinysrgb&w=600">
+<h3>Swimming</h3>
+<p>Enjoy our indoor swimming pool with a relaxing atmosphere, perfect for leisure or exercise.</p>
+</div>
+<div class="service-box">
+<img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600">
+<h3>Office Meeting</h3>
+<p>We provide well-equipped meeting rooms for your business needs, complete with audio-visual facilities.</p>
+</div>
+<div class="service-box">
+<img src="https://images.pexels.com/photos/3217154/pexels-photo-3217154.jpeg?auto=compress&cs=tinysrgb&w=600">
+<h3>Indoor Games</h3>
+<p>Engage in various indoor games like table tennis, billiards, and more to unwind.</p>
+</div>
+</div>
+</div>
+ 
 <app-footer></app-footer>
-
-
+has context menu

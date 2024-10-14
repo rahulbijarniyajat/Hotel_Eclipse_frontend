@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+ 
 @Component({
   selector: 'app-roombooking',
   templateUrl: './roombooking.component.html',
@@ -8,14 +8,18 @@ import { Component } from '@angular/core';
 export class RoombookingComponent {
   showBookingForm = false;
   currentroomprice: number = 0;
+  currentRoomType: string='single';
 
-  openBookingForm(price: number): void {
+ 
+  openBookingForm(price: number, roomType: string) {
     this.currentroomprice = price;
-    this.showBookingForm = true; 
-  }
-
+    this.currentRoomType = roomType; 
+    this.showBookingForm = true;
+}
+ 
+ 
   closeBookingForm(): void {
     this.showBookingForm = false; 
   }
-
+ 
 }

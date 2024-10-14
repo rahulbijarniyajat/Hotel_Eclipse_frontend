@@ -1,38 +1,40 @@
 <div class="booking-overlay">
   <div class="booking-form">
-    <h2>Book a Room</h2>
-    <form [formGroup]="bookingForm">
-      <p></p>
-
-      <p><mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="username" required>
-      </mat-form-field></p>
-      
-
-      <mat-form-field appearance="fill">
-        <mat-label>Check-in Date</mat-label>
-        <input matInput [matDatepicker]="checkInPicker" formControlName="checkInDate" required>
-        <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
-        <mat-datepicker #checkInPicker></mat-datepicker>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Check-out Date</mat-label>
-        <input matInput [matDatepicker]="checkOutPicker" formControlName="checkOutDate" required>
-        <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
-        <mat-datepicker #checkOutPicker></mat-datepicker>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Total Price</mat-label>
-        <input matInput formControlName="totalprice" type="text" readonly>
-      </mat-form-field>
-
-      <div class="button-group">
-        <button mat-raised-button (click)="openDialog('0ms', '0ms')">Make Payment</button>
-        <button mat-button type="button" (click)="cancel()">Cancel</button>
-      </div>
-    </form>
+  <h2>Book a Room</h2>
+  <form [formGroup]="bookingForm">
+  <p></p>
+   
+        <p><mat-form-field appearance="fill">
+  <mat-label>Email</mat-label>
+  <input matInput formControlName="email" required>
+  </mat-form-field></p>
+  <mat-form-field appearance="fill">
+  <mat-label>Type of Room</mat-label>
+  <input matInput formControlName="roomType" [value]="roomType" readonly>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+  <mat-label>Check-in Date</mat-label>
+  <input matInput [matDatepicker]="checkInPicker" formControlName="checkInDate" required>
+  <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
+  <mat-datepicker #checkInPicker></mat-datepicker>
+  </mat-form-field>
+   
+        <mat-form-field appearance="fill">
+  <mat-label>Check-out Date</mat-label>
+  <input matInput [matDatepicker]="checkOutPicker" formControlName="checkOutDate" required>
+  <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
+  <mat-datepicker #checkOutPicker></mat-datepicker>
+  </mat-form-field>
+   
+        <mat-form-field appearance="fill">
+  <mat-label>Total Price</mat-label>
+  <input matInput formControlName="totalprice" type="text" readonly>
+  </mat-form-field>
+   
+        <div class="button-group">
+  <button mat-raised-button (click)="openDialog('0ms', '0ms')">Make Payment</button>
+  <button mat-button type="button" (click)="cancel()">Cancel</button>
   </div>
-</div>
+  </form>
+  </div>
+  </div>
