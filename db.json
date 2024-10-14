@@ -212,10 +212,11 @@
       "checkoutdate": "2024-10-14T18:30:00.000Z"
     },
     {
-      "id": "5f83",
-      "username": "sarita jhakar",
-      "checkindate": "2024-10-09T18:30:00.000Z",
-      "checkoutdate": "2024-10-13T18:30:00.000Z"
+      "id": "6d0b",
+      "fname": "lavanya",
+      "lname": "kadiyala",
+      "email": "lavanyakadiyala250@gmail.com",
+      "password": "lavanya"
     }
   ]
 }

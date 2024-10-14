@@ -28,6 +28,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogActions,MatDialogClose,MatDialogContent,MatDialogTitle, MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import {MatDialogActions,MatDialogClose,MatDialogContent,MatDialogTitle, MatDial
   imports: [
     BrowserModule,MatDatepickerModule,MatNativeDateModule,BrowserAnimationsModule,MatDialogActions,MatDialogClose,MatDialogContent,MatDialogTitle,MatDialogModule,
     AppRoutingModule, ReactiveFormsModule, HttpClientModule,MatButtonModule,MatButtonToggleModule,MatIconModule,MatInputModule,MatFormFieldModule,
-    MatDividerModule,
+    MatDividerModule,FormsModule,
     
   ],
   providers: [
