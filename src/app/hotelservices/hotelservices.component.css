@@ -14,8 +14,9 @@
   font-size: 7vh;
   margin-top: 10px;
   margin-bottom: 25px;
-  color: rgb(0, 7, 12);
-}
+  color:  black;
+  font-weight: bold;
+  }
 
 .container {
   margin-left: 25%;

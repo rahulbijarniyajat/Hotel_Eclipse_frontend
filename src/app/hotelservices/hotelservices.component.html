@@ -1,44 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services Page</title>
-  
-</head>
-<body>
-    <app-header></app-header>
+<app-header></app-header>
 <div class="main">
   <section id="services" class="services">
     <h2>Laundry Services</h2>
     
     <div class="container">
-       
-        
         <div class="service">
             <h3>Book your Service Here!</h3>
-            <form id="laundry-form">
+            <form id="laundry-form" (ngSubmit)="bookLaundryService()" #laundryForm="ngForm">
                 <label for="email-laundry">Email:</label>
-                <input type="email" id="email-laundry" name="email-laundry" required><br><br>
+                <input type="email" id="email-laundry" name="email-laundry" [(ngModel)]="laundry.email" required><br><br>
+
                 <label for="clothes">Number of Clothes:</label>
-                <input type="number" id="clothes" name="clothes" required><br><br>
-                <label for="wash">Type of wash:</label>
-                <select id="wash" name="wash" required>
-                    <option value="regular wash">regular wash (₹20/- per item)</option>
-                    <option value="bleach wash">bleach wash(₹30/- per item)</option>
-                    <option value="enzyme wash">enzyme wash(₹40/- per item)</option>
-                    <option value="stone wash">stone wash (₹50/- per item)</option>
-                    <option value="silicone wash">silicone wash (₹60/- per item)</option>
+                <input type="number" id="clothes" name="clothes" [(ngModel)]="laundry.noofclothes" (input)="calculatePrice()" required><br><br>
+
+                <label for="wash">Type of Wash:</label>
+                <select id="wash" name="wash" [(ngModel)]="laundry.typeofwash" (change)="calculatePrice()" required>
+                    <option value="regular wash">Regular wash (₹20/- per item)</option>
+                    <option value="bleach wash">Bleach wash (₹30/- per item)</option>
+                    <option value="enzyme wash">Enzyme wash (₹40/- per item)</option>
+                    <option value="stone wash">Stone wash (₹50/- per item)</option>
+                    <option value="silicone wash">Silicone wash (₹60/- per item)</option>
                 </select><br><br>
+
                 <label for="price-laundry">Price:</label>
-                <input type="text" id="price-laundry" name="price-laundry" required><br><br>
-                <button type="submit">Book Now</button>
+                <input type="text" id="price-laundry" name="price-laundry" [(ngModel)]="laundry.price" required readonly><br><br>
+
+                <button type="submit" [disabled]="!laundryForm.form.valid">Book Now</button>
             </form>
         </div>
     </div>
-    
   </section>
 </div>
-  <app-footer></app-footer>
-</body>
-</html>
+<app-footer></app-footer>

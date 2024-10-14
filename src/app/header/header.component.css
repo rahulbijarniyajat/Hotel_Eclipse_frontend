@@ -5,6 +5,7 @@
   background-color: #0c0808;
   padding: 10px;
   height: 60px;
+  padding-bottom: 2px;
 }
 
 .logo-container {
@@ -43,6 +44,9 @@
   background-image: url('../../assets/images\ \(1\).png'); /* Path to your logo image */
   background-size: contain;
   background-repeat: no-repeat;
+  padding-top: 10px;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .dropdown {
