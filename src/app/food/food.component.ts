@@ -6,7 +6,13 @@ import { BookingService, food } from '../services/booking.service';
   templateUrl: './food.component.html',
   styleUrls: ['./food.component.css']
 })
-export class FoodComponent {
+export class FoodComponent  {
+  
+  mealPrices = {
+    breakfast: 200,
+    lunch: 400,
+    dinner: 600
+  };
 
   foodDetails: food = {
     email: '',
@@ -45,3 +51,23 @@ export class FoodComponent {
     );
   }
 }
+
+@Component({
+  selector: 'dialog-content-example-dialog',
+  template: `<h1 mat-dialog-title>Your food is booked</h1>
+        
+             <div mat-dialog-actions>
+               <button mat-button mat-dialog-close>OK</button>
+             </div>`,
+  styles: [`
+    h1 {
+      color: #3f51b5;
+      font-size:20px;
+      text-align: center;
+    }
+    div[mat-dialog-actions] {
+      margin-left: 45%;
+    }
+  `]
+})
+export class DialogContentExampleDialog {}

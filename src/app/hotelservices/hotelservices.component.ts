@@ -59,3 +59,24 @@ export class HotelservicesComponent {
     };
   }
 }
+
+@Component({
+  selector: 'dialog-content-example-dialog',
+  template: `<h1 mat-dialog-title>Laundry services Booked</h1>
+             
+             <div mat-dialog-actions>
+               <button mat-button mat-dialog-close>OK</button>
+             </div>`,
+  styles: [`
+    h1 {
+      color: #3f51b5;
+      text-align: center;
+      font-size: 20px;
+    }
+    
+    div[mat-dialog-actions] {
+      margin-left:40%;
+    }
+  `]
+})
+export class DialogContentExampleDialog {}
