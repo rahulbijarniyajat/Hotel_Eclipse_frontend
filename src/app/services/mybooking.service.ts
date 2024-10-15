@@ -16,7 +16,7 @@ export class BookingService {
   }
 
   getLaundryBookings(email: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/hotelservice?email=${email}`);
+    return this.http.get<any[]>(`${this.baseUrl}/?email=${email}`);
   }
 
   getRoomBookings(email: string): Observable<any[]> {

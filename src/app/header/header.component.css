@@ -10,7 +10,7 @@
 
 .logo-container {
   display: flex;
-  align-items: center; /* Ensure logo and heading are aligned horizontally */
+  align-items: center;
 }
 
 .header p {
@@ -18,12 +18,12 @@
   font-size: 40px;
   margin: 0;
   white-space: nowrap;
-  margin-left: 200%; /* Space between logo and heading */
+  margin-left: 20px; /* Adjusted for better spacing */
 }
 
 .header nav {
   display: flex;
-  align-items: center; /* Ensure all items are aligned in the center */
+  align-items: center;
   gap: 15px;
 }
 
@@ -39,9 +39,9 @@
 }
 
 .header .logo {
-  width: 50px; /* Adjust the width as needed */
-  height: 50px; /* Adjust the height as needed */
-  background-image: url('../../assets/images\ \(1\).png'); /* Path to your logo image */
+  width: 50px;
+  height: 50px;
+  background-image: url("../../assets/images\ \(1\).png");
   background-size: contain;
   background-repeat: no-repeat;
   padding-top: 10px;

@@ -61,11 +61,13 @@ background-repeat: no-repeat;
 
 .main p {
     margin-top: 0;
-    font-size: 6vh;
+    font-size: 8vh;
     text-align: center;
+    line-height: normal;
     width: 60%;
     margin-left: 20%;
     padding-top: 15%;
+    color: rgb(176, 177, 177);
 }
 .footer {
     width: 100%;

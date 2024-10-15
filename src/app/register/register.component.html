@@ -1,4 +1,11 @@
-<app-header></app-header>
+<div class="header">
+  <div class="logo">
+    <p>HOTEL ECLIPSE</p>
+  </div>
+  <nav>
+    <a href="welcome">Home</a>
+  </nav>
+</div>
 <div class="main">
   <div class="register-container">
     <h2>Register Here</h2>
@@ -11,6 +18,9 @@
         </div>
         <div *ngIf="registerForm.get('fname')?.errors?.['maxlength'] && registerForm.get('fname')?.touched">
           <small style="color: red;">First name cannot exceed 15 characters.</small>
+        </div>
+        <div *ngIf="registerForm.get('fname')?.errors?.['invalidName'] && registerForm.get('fname')?.touched">
+          <small style="color: red;">First name cannot contain number.</small>
         </div>
       </div>
 

@@ -1,20 +1,32 @@
 <div class="header">
-  <div class="logo">
+  <div class="logo-container">
+    <div class="logo"></div>
     <p>HOTEL ECLIPSE</p>
   </div>
-    <nav>
-      <a href="roombooking">Rooms</a>
-      <a href="mybookings">My Bookings</a>
-      <div class="dropdown">
-        <a >Services</a>
-        <div class="dropdown-content">
-            <a href="food">Food</a>
-            <a href="hotelservices">Laundry</a>
-        </div>
+  <nav>
+    <a href="roombooking">Rooms</a>
+    <a href="mybookings">My Bookings</a>
+    <div class="dropdown">
+      <a>Services</a>
+      <div class="dropdown-content">
+        <a href="food">Food</a>
+        <a href="hotelservices">Laundry</a>
+      </div>
     </div>
-      
-      <a href="contact">Contact Us</a>
-      <a href="feedback">Feedback</a>
-      <a href="welcome">Sign Out</a>
-    </nav>
+    <a href="contact">Contact Us</a>
+    <a href="feedback">Feedback</a>
+    
+    <!-- Profile Dropdown -->
+    <!-- Profile Dropdown -->
+<div class="dropdown" *ngIf="user">
+  <a>Profile</a>
+  <div class="dropdown-content">
+    <p style="padding: 1px; margin: 0; color: white; font-size: small;">User: {{ user.firstName }} {{ user.lastName }}</p>
+    <p style="padding: 1px; margin: 0; color: white; font-size: small;">Email: {{ user.email }}</p>
+  </div>
+</div>
+
+    
+    <a href="welcome">Sign Out</a>
+  </nav>
 </div>
