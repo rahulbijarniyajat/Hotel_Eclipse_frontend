@@ -31,7 +31,7 @@ export interface hotelservices{
   providedIn: 'root'
 })
 export class BookingService {
-  private apiurl="http://localhost:3000/bookings";
+  private apiurl="http://localhost:8080/api/rooms";
   private foodApiUrl = "http://localhost:8080/api/foods";
   private laundryApiUrl="http://localhost:8080/api/laundry"
     constructor(private http: HttpClient) { }

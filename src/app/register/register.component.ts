@@ -36,22 +36,35 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
-        console.error('Passwords do not match');
-        return;
-      }
-      this.authservice.register(this.registerForm.value).subscribe(
-        response => {
-          console.log('Registration Successful', response);
-          this.router.navigate(['/login']);
-        },
-        error => {
-          console.error('Registration failed', error);
+        // Log the values before sending
+        console.log('Form Values:', this.registerForm.value);
+        
+        if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
+            console.error('Passwords do not match');
+            return;
         }
-      );
+
+        // Create a user payload with the correct property names
+        const userPayload = {
+            firstName: this.registerForm.value.fname,  // Mapping fname to firstName
+            lastName: this.registerForm.value.lname,    // Mapping lname to lastName
+            email: this.registerForm.value.email,
+            password: this.registerForm.value.password
+        };
+
+        this.authservice.register(userPayload).subscribe(
+            response => {
+                console.log('Registration Successful', response);
+                this.router.navigate(['/login']);
+            },
+            error => {
+                console.error('Registration failed', error);
+            }
+        );
     } else {
-      console.error('Form is not valid', this.registerForm);
-      this.registerForm.markAllAsTouched();
+        console.error('Form is not valid', this.registerForm);
+        this.registerForm.markAllAsTouched();
     }
-  }
+}
+
 }

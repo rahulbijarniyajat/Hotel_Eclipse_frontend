@@ -39,9 +39,11 @@ export class BookingformComponent {
  
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     if (this.bookingForm.valid) {
+
+      this.bookingForm.get('totalprice')?.enable();
       // Create a booking object from the form values
       const booking: Booking = {
-        email: this.bookingForm.value.username,
+        email: this.bookingForm.value.email,
         roomType: this.bookingForm.value.roomType, 
         checkindate: this.bookingForm.value.checkInDate,
         checkoutdate: this.bookingForm.value.checkOutDate,

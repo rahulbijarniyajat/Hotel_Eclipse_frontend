@@ -33,6 +33,9 @@
       <div class="form-actions">
         <button type="submit">Login</button>
       </div>
+      <div *ngIf="loginError" style="color: red;">
+        <small>Invalid email or password.</small>
+      </div>
     </form>
   </div>
 </div>

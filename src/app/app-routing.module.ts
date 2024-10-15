@@ -8,6 +8,7 @@ import { HotelservicesComponent } from './hotelservices/hotelservices.component'
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FoodComponent } from './food/food.component';
 import { RoombookingComponent } from './roombooking/roombooking.component';
+import { MybookingsComponent } from './mybookings/mybookings.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'hotelservices',component: HotelservicesComponent},
   { path:'welcome',component: WelcomeComponent},
   {path:'food',component:FoodComponent},
+  {path:'mybookings',component:MybookingsComponent},
   { path:'', redirectTo:'/welcome', pathMatch:'full'},
   {path:'roombooking',component:RoombookingComponent},
 ];

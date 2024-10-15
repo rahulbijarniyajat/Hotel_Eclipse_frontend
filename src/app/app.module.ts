@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { HotelservicesComponent } from './hotelservices/hotelservices.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,19 +18,20 @@ import { RoombookingComponent } from './roombooking/roombooking.component';
 import { RbheaderComponent } from './rbheader/rbheader.component';
 import { BookingformComponent } from './bookingform/bookingform.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogActions,MatDialogClose,MatDialogContent,MatDialogTitle, MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { MybookingsComponent } from './mybookings/mybookings.component';
 
 @NgModule({
   declarations: [
@@ -46,14 +48,26 @@ import { MatSelectModule } from '@angular/material/select';
     RoombookingComponent,
     RbheaderComponent,
     BookingformComponent,
-    DialogboxComponent
-    
+    DialogboxComponent,
+    MybookingsComponent
   ],
   imports: [
-    BrowserModule,MatDatepickerModule,MatNativeDateModule,BrowserAnimationsModule,MatDialogActions,MatDialogClose,MatDialogContent,MatDialogTitle,MatDialogModule,
-    AppRoutingModule, ReactiveFormsModule, HttpClientModule,MatButtonModule,MatButtonToggleModule,MatIconModule,MatInputModule,MatFormFieldModule,
-    MatDividerModule,FormsModule,MatSelectModule
-    
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule // Include MatDialogModule here
   ],
   providers: [
     provideAnimationsAsync()

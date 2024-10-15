@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="main">
+  <section id="bookings" class="bookings">
+    <h2>Your Bookings</h2>
+
+    <div class="bookings-section">
+      <h3>Food Bookings</h3>
+      <ul>
+        <li *ngFor="let booking of foodBookings">
+          <p>Email: {{ booking.email }}</p>
+          <p>Food Type: {{ booking.foodtype }}</p>
+          <p>No of Guests: {{ booking.noofguests }}</p>
+          <p>Meal: {{ booking.meal }}</p>
+          <p>Total Price: ₹{{ booking.price }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="bookings-section">
+      <h3>Laundry Bookings</h3>
+      <ul>
+        <li *ngFor="let booking of laundryBookings">
+          <p>Email: {{ booking.email }}</p>
+          <p>Item: {{ booking.item }}</p>
+          <p>Quantity: {{ booking.quantity }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="bookings-section">
+      <h3>Room Bookings</h3>
+      <ul>
+        <li *ngFor="let booking of roomBookings">
+          <p>Email: {{ booking.email }}</p>
+          <p>Room Type: {{ booking.roomType }}</p>
+          <p>Check-in Date: {{ booking.checkInDate | date }}</p>
+          <p>Check-out Date: {{ booking.checkOutDate | date }}</p>
+          <p>Total Price: ₹{{ booking.totalprice }}</p>
+        </li>
+      </ul>
+    </div>
+
+  </section>
+</div>
+<app-footer></app-footer>
