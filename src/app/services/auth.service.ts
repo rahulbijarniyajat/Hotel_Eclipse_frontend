@@ -15,6 +15,7 @@ export interface User {
 })
 export class AuthService {
   private apiUrl = "http://localhost:8080/api/users";
+  private feedbackurl='http://localhost:8080/api/feedback'
   private userSubject = new BehaviorSubject<User | null>(null);
   user$ = this.userSubject.asObservable();
 
@@ -47,9 +48,13 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/hotelservices`, bookingData);
   }
 
-  // Get user data
-  getUserData(): Observable<User | null> {
-    return this.userSubject.asObservable();
+  
+  feedback(feedbackData: any): Observable<any> {
+    return this.http.post(this.feedbackurl, feedbackData);
+  }
+
+  getUserData(): Observable<any> {
+    return this.userSubject.asObservable(); // Provide access to user data
   }
 
   // Logout method

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-feedback',
@@ -12,7 +13,7 @@ export class FeedbackComponent implements OnInit { // Implement OnInit
 
   feedbackForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private dialog: MatDialog) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private dialog: MatDialog,private apiService:AuthService) {}
 
   ngOnInit(): void {
     this.feedbackForm = this.fb.group({
@@ -23,26 +24,27 @@ export class FeedbackComponent implements OnInit { // Implement OnInit
   }
 
   onSubmit(): void {
-    // if (this.feedbackForm.valid) {
-    //   const feedbackData = this.feedbackForm.getRawValue();
-    //   console.log('Feedback Data:', feedbackData); // Debugging line
-    //   this.http.post('http://localhost:8080/api/feedback', feedbackData)
-    //     .subscribe(
-    //       (response: any) => {
-            
-    //         console.log('Feedback saved', response);
-    //         this.openDialog('Your feedback has been submitted successfully.');
-    //         this.feedbackForm.reset(); // Reset form after submission
-    //       },
-    //       (error: any) => {
-    //         console.error('Error saving feedback', error);
-    //         this.openDialog('There was an error submitting your feedback. Please try again.');
-    //       }
-    //     );
-    // }
-            alert("feedback submitted");
+    
+      
+      const feedbackData = this.feedbackForm.getRawValue();
+      console.log(feedbackData)
+      this.http.post('http://localhost:8080/api/feedback', feedbackData, {responseType: "text"})
+        .subscribe(
+          (response) => {
+            // console.log('Feedback saved', response);
+            alert("Feedback Saved");
+            // this.openDialog('Your feedback has been submitted successfully.');
+            this.feedbackForm.reset(); // Reset form after submission
+          },
+          // (error: any) => {
+          //   console.error('Error saving feedback', error);
+          //   this.openDialog('There was an error submitting your feedback. Please try again.');
+          // }
+        );
+
     
   }
+  
 
   openDialog(message: string): void {
     this.dialog.open(DialogContentExampleDialog, {
