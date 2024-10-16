@@ -25,7 +25,6 @@ export class FeedbackComponent implements OnInit { // Implement OnInit
 
   onSubmit(): void {
     
-    // if (this.feedbackForm.valid) {
       
       const feedbackData = this.feedbackForm.getRawValue();
       console.log(feedbackData)
@@ -42,13 +41,7 @@ export class FeedbackComponent implements OnInit { // Implement OnInit
           //   this.openDialog('There was an error submitting your feedback. Please try again.');
           // }
         );
-        // this.apiService.feedback(feedbackData).subscribe(
-        //   (response)=>{
-        //     console.log("submitted")
-        //   },(error)=>{
-        //     console.log(error);
-        //   }
-        // )
+
     
   }
   
