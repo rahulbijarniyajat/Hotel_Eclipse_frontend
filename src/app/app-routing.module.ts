@@ -15,12 +15,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'feedback', component: FeedbackComponent },
-  { path: 'hotelservices',component: HotelservicesComponent},
-  { path:'welcome',component: WelcomeComponent},
-  {path:'food',component:FoodComponent},
-  {path:'mybookings',component:MybookingsComponent},
-  { path:'', redirectTo:'/welcome', pathMatch:'full'},
-  {path:'roombooking',component:RoombookingComponent},
+  { path: 'hotelservices', component: HotelservicesComponent },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'food', component: FoodComponent },
+  { path: 'mybookings', component: MybookingsComponent },
+  { path: 'roombooking', component: RoombookingComponent },
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
 ];
 
 @NgModule({

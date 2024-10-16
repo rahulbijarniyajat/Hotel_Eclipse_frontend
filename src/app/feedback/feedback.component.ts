@@ -23,22 +23,25 @@ export class FeedbackComponent implements OnInit { // Implement OnInit
   }
 
   onSubmit(): void {
-    if (this.feedbackForm.valid) {
-      const feedbackData = this.feedbackForm.getRawValue();
-      console.log('Feedback Data:', feedbackData); // Debugging line
-      this.http.post('http://localhost:8080/api/feedback', feedbackData)
-        .subscribe(
-          (response: any) => {
-            console.log('Feedback saved', response);
-            this.openDialog('Your feedback has been submitted successfully.');
-            this.feedbackForm.reset(); // Reset form after submission
-          },
-          (error: any) => {
-            console.error('Error saving feedback', error);
-            this.openDialog('There was an error submitting your feedback. Please try again.');
-          }
-        );
-    }
+    // if (this.feedbackForm.valid) {
+    //   const feedbackData = this.feedbackForm.getRawValue();
+    //   console.log('Feedback Data:', feedbackData); // Debugging line
+    //   this.http.post('http://localhost:8080/api/feedback', feedbackData)
+    //     .subscribe(
+    //       (response: any) => {
+            
+    //         console.log('Feedback saved', response);
+    //         this.openDialog('Your feedback has been submitted successfully.');
+    //         this.feedbackForm.reset(); // Reset form after submission
+    //       },
+    //       (error: any) => {
+    //         console.error('Error saving feedback', error);
+    //         this.openDialog('There was an error submitting your feedback. Please try again.');
+    //       }
+    //     );
+    // }
+            alert("feedback submitted");
+    
   }
 
   openDialog(message: string): void {
