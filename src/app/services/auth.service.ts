@@ -8,6 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   private apiUrl = "http://localhost:8080/api/users";
+  private feedbackurl='http://localhost:8080/api/feedback'
   private userSubject = new BehaviorSubject<any>(null);
   user$ = this.userSubject.asObservable();
 
@@ -31,6 +32,11 @@ export class AuthService {
 
   saveLaundryBooking(bookingData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/hotelservices`, bookingData);
+  }
+
+  
+  feedback(feedbackData: any): Observable<any> {
+    return this.http.post(this.feedbackurl, feedbackData);
   }
 
   getUserData(): Observable<any> {
