@@ -14,11 +14,11 @@
 }
 
 .header p {
-  color: white;
+  color: rgb(246, 242, 242);
   font-size: 40px;
   margin: 0;
   white-space: nowrap;
-  margin-left: 20px; /* Adjusted for better spacing */
+  margin-left: 20px;
 }
 
 .header nav {
